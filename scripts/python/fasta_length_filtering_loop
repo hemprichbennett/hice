@@ -1,0 +1,11 @@
+for read in *fasta
+
+do 
+
+outfile=$(echo ../galaxy_r_workflow/$read)
+outmeta=$(echo meta_$read)
+echo working with file $read
+
+python /Users/davehemprichbennett/Dropbox/Education/PhD/Bat-diet/scripts/python/fasta_length_filtering.py $read $outfile $outmeta 155 159 2 
+
+done

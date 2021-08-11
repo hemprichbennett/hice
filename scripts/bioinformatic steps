@@ -1,0 +1,18 @@
+#We now have the file from galaxy, but with the annoying issue that a few sequences returned (<0.1%) were a special combination of junk that actually matched all the parameters on both sides of the reverse complement. So we have occasional duplicate sequencenames, which mothur hates.
+
+#First, make a file of the names of the duplicates
+cat Galaxy12Filtersequencesbylengthondata11.fasta | grep '^>' | sort | uniq -d > duplicate_sequencename
+
+#Then use the biopython script to remove these sequences
+
+
+#Then use the groupfile reducing script to make sure we only have the groups info for sequences which still exist. I did this in an array, splitting the fasta into 500 smaller files, to speed it up
+
+
+#Then use the fasta_length_filtering script to collapse haplotypes and length filter
+for read in *fasta;  do  outfile=$(echo ../galaxy_r_workflow/$read); outmeta=$(echo meta_$read); echo working with file $read;  python /Users/davehemprichbennett/Dropbox/Education/PhD/Bat-diet/scripts/python/fasta_length_filtering.py $read $outfile $outmeta 154 160 2 ; done
+
+#Rename the output files using rename (installed via homebrew)
+rename s/Galaxy_sed_sorted\.//g *
+
+#Then use the galaxy-R workflow

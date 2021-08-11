@@ -1,0 +1,11 @@
+for dir in *
+do 
+
+echo $dir
+cd $dir
+fas=$(echo *.fasta)
+echo $fas
+makeblastdb -in $fas -parse_seqids -dbtype nucl
+blastn -db $fas -outfmt '6 qseqid sseqid pident' -out match_list.txt -qcov_hsp_perc 80 -perc_identity 84 -query $fas
+cd ..
+done
