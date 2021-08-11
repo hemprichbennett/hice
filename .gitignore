@@ -1,0 +1,24 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+/Users/davehemprichbennett/Dropbox/Education/PhD/Bat-diet/data/*
+/Users/davehemprichbennett/Dropbox/Education/PhD/Bat-diet/plots/*
+data/
+plots/
+*/data/*
+*/plots/*
+/data/*
+/plots/*
+/data/
+/plots/
+*.fastq
+*.fastq.gz
+*.csv
+*.fasta
+*.pdf
+*.png
+.Rhistory[Conflict 1]
+manuscript/*
+*.docx
+manuscript/
